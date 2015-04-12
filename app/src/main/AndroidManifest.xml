@@ -21,16 +21,6 @@
             android:label="Compose Music">
 
         </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="Settings">
-
-        </activity>
-        <activity
-            android:name=".OtherActivity"
-            android:label="Other Features">
-
-        </activity>
     </application>
 
 </manifest>

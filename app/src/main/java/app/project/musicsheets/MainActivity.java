@@ -12,20 +12,14 @@ import android.widget.LinearLayout;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
-    Button button2, button, button3, button4 = null;
+    Button button2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button2 = (Button) findViewById(R.id.button2);
-        button = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button2);
-        button4 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(this);
-        button.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
     }
 
 
@@ -56,16 +50,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if(v == button2) {
             Intent intent = new Intent(this, ComposeActivity.class);
             startActivity(intent);
-        }
-        if(v==button3)
-        {
-            Intent intent2 = new Intent(this, SettingsActivity.class);
-            startActivity(intent2);
-        }
-        if(v==button4)
-        {
-            Intent intent3 = new Intent(this, OtherActivity.class);
-            startActivity(intent3);
         }
 
     }

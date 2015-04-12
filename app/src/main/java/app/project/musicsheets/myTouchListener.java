@@ -7,7 +7,7 @@ import android.view.View;
 /**
  * Created by Jacob on 4/5/2015.
  */
-public class TouchListener implements View.OnTouchListener {
+public class myTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)

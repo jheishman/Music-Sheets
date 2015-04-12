@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    tools:context=".SettingsActivity"
+    android:weightSum="1"
+    android:background="#ffa500">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/o"
+        android:id="@+id/textView"
+        android:gravity="center_vertical|center_horizontal"
+        android:textStyle="bold"
+        android:textSize="14pt"
+        android:background="#ff00ff00"
+        android:layout_weight="0.06" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:id="@+id/viEw1"
+        android:visibility="visible"
+        android:background="@android:color/black"
+        android:layout_marginBottom="62dp" />
+
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/music_transcription"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".25"
+        android:layout_marginBottom="220dp"
+        android:background="#ffff00ff"
+        android:textColor="#ff000000"
+        android:onClick="onClick"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/website"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".25"
+        android:layout_marginBottom="10dp"
+        android:background="#ffff00ff"
+        android:textColor="#ff000000"
+        android:onClick="onClick"/>
+</LinearLayout>

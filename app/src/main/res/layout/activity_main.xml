@@ -8,25 +8,6 @@
     android:weightSum="1"
     android:background="#ffffffff">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/name"
-        android:id="@+id/textView"
-        android:gravity="center_vertical|center_horizontal"
-        android:textStyle="bold"
-        android:textSize="14pt"
-        android:background="#ff00ffff"
-        android:layout_weight="0.06" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.2dp"
-        android:id="@+id/viEw1"
-        android:visibility="visible"
-        android:background="@android:color/black"
-        android:layout_marginBottom="10dp" />
-
     <ImageView
         android:layout_width="200dp"
         android:layout_height="0dp"
@@ -35,18 +16,17 @@
         android:layout_weight=".51"
         android:src="@drawable/s"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="14.2dp"
         android:contentDescription="@string/image" />
 
     <Button
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="@string/compose"
         android:id="@+id/button2"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight=".0625"
         android:layout_marginBottom="10dp"
-        android:background="#ffffff00"
-        android:textColor="#ffff0000"
+        android:background="#C0C0C0"
+        style="@style/text"
         android:onClick="onClick"/>
 
     <Button
@@ -54,11 +34,9 @@
         android:layout_height="wrap_content"
         android:text="@string/display"
         android:id="@+id/button"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight=".0625"
         android:layout_marginBottom="10dp"
-        android:background="#ffffff00"
-        android:textColor="#ffff0000"
+        android:background="#C0C0C0"
+        style="@style/text"
         android:onClick="onClick"/>
 
     <Button
@@ -66,11 +44,9 @@
         android:layout_height="wrap_content"
         android:text="@string/set"
         android:id="@+id/button3"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight=".0625"
         android:layout_marginBottom="10dp"
-        android:background="#ffffff00"
-        android:textColor="#ffff0000"
+        android:background="#C0C0C0"
+        style="@style/text"
         android:onClick="onClick"/>
 
 
@@ -79,11 +55,9 @@
         android:layout_height="wrap_content"
         android:text="@string/o"
         android:id="@+id/button4"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight=".0625"
         android:layout_marginBottom="10dp"
-        android:background="#ffffff00"
-        android:textColor="#ffff0000"
+        android:background="#C0C0C0"
+        style="@style/text"
         android:onClick="onClick"/>
 
 </LinearLayout>

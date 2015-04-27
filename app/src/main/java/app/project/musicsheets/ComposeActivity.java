@@ -1,6 +1,7 @@
 package app.project.musicsheets;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
@@ -27,7 +28,7 @@ import java.io.File;
 /**
  * Created by Jacob on 4/5/2015.
  */
-public class ComposeActivity extends ActionBarActivity{
+public class ComposeActivity extends ActionBarActivity {
 
     private static final String LOGCAT = null;
     @Override

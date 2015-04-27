@@ -1,5 +1,6 @@
 package app.project.musicsheets;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -11,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     Button button2, button, button3, button4 = null;
 
     @Override

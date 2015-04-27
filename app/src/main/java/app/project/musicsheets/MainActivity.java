@@ -67,6 +67,5 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             Intent intent3 = new Intent(this, OtherActivity.class);
             startActivity(intent3);
         }
-
     }
 }

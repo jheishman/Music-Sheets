@@ -68,5 +68,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Intent intent3 = new Intent(this, OtherActivity.class);
             startActivity(intent3);
         }
+
+        if(v==button) {
+            Intent intent4 = new Intent(this,DisplayActivity.class);
+            startActivity(intent4);
+        }
+
     }
 }

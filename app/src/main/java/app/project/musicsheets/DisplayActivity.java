@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -22,7 +23,7 @@ import java.io.InputStreamReader;
  */
 public class DisplayActivity extends ActionBarActivity{
 
-    FileInputStream inputStream;
+    InputStream inputStream;
     InputStreamReader streamReader;
     BufferedReader reader;
 
@@ -33,10 +34,10 @@ public class DisplayActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_activity);
         RelativeLayout drawScreen = (RelativeLayout) findViewById(R.id.drawScreen);
-        String fileName = "/data/data/app.project.musicsheets/files/testFile.txt";
+        String fileName = "testFile.txt";
         try {
-            AssetFileDescriptor fd = assetManager.openFd("testFile.txt");
-            inputStream = new FileInputStream(fileName);
+            //AssetFileDescriptor fd = assetManager.openFd(fileName);
+            inputStream = assetManager.open(fileName);
             reader = new BufferedReader(new InputStreamReader(inputStream));
 
         } catch(Exception e){

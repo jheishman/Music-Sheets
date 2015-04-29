@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * Created by Jacob on 4/5/2015.
@@ -38,6 +39,7 @@ public class ComposeActivity extends ActionBarActivity {
         String fileName = "testFile.txt";
         try {
             outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+            //outputStream = getResources().openRawResource(R.raw.test);
             String pageNumber = "Page 1\n";
             pages++;
             outputStream.write(pageNumber.getBytes());

@@ -2,7 +2,10 @@ package app.project.musicsheets;
 
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -23,11 +26,15 @@ import java.io.InputStreamReader;
  */
 public class DisplayActivity extends ActionBarActivity{
 
-    InputStream inputStream;
     InputStreamReader streamReader;
     BufferedReader reader;
+    int numViews;
+    int numImageViews;
 
     protected void onCreate(Bundle savedInstanceState) {
+
+        numViews = 0;
+        numImageViews = 0;
 
         AssetManager assetManager = getAssets();
 
@@ -37,8 +44,8 @@ public class DisplayActivity extends ActionBarActivity{
         String fileName = "testFile.txt";
         try {
             //AssetFileDescriptor fd = assetManager.openFd(fileName);
-            inputStream = assetManager.open(fileName);
-            reader = new BufferedReader(new InputStreamReader(inputStream));
+            InputStream is = getResources().openRawResource(R.raw.test);
+            reader = new BufferedReader(new InputStreamReader(is));
 
         } catch(Exception e){
             e.printStackTrace();
@@ -48,33 +55,54 @@ public class DisplayActivity extends ActionBarActivity{
         //StringBuilder stringBuilder = new StringBuilder();
         String line;
         String[] tokens = new String[5];
+        View[] views = new View[30];
+        ImageView[] imageViews = new ImageView[50];
+        RelativeLayout.LayoutParams[] viewParams = new RelativeLayout.LayoutParams[30];
+        RelativeLayout.LayoutParams[] imageParams = new RelativeLayout.LayoutParams[50];
+
         try {
             while((line = reader.readLine()) != null) {
                 tokens = line.split(",");
                 Log.i(null, tokens[0]);
-                if(tokens[0] == "View")
+                if(tokens[0].compareTo("View") == 0)
                 {
-                    View newLine = new View(this);
-                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    params.addRule(RelativeLayout.ALIGN_PARENT_TOP,RelativeLayout.ALIGN_PARENT_LEFT);
-                    params.topMargin = Integer.parseInt(tokens[1].toString());
-                    params.leftMargin = Integer.parseInt(tokens[2].toString());
+                    Log.i(null,"Here is a view");
+                    views[numViews] = new View(this);
+                    viewParams[numViews] = new RelativeLayout.LayoutParams(1200,10);
+                    viewParams[numViews].addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.ALIGN_PARENT_LEFT);
+                    viewParams[numViews].topMargin = Integer.parseInt(tokens[1].toString());
+                    viewParams[numViews].leftMargin = Integer.parseInt(tokens[2].toString());
 
-                    newLine.setLayoutParams(params);
-                    newLine.setBackgroundColor(Color.rgb(0, 0, 0));
+                    Log.i(null,String.valueOf(viewParams[numViews].topMargin));
+                    Log.i(null,String.valueOf(viewParams[numViews].leftMargin));
+                    views[numViews].setLayoutParams(viewParams[numViews]);
+                    views[numViews].setBackgroundColor(Color.rgb(0, 0, 0));
 
-                    drawScreen.addView(newLine,params);
+                    drawScreen.addView(views[numViews],viewParams[numViews]);
+                    numViews++;
                 }
-                if(tokens[0] == "ImageView")
+                if(tokens[0].compareTo("ImageView") == 0)
                 {
-                    ImageView newImage = new ImageView(this);
-                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    params.addRule(RelativeLayout.ALIGN_PARENT_TOP,RelativeLayout.ALIGN_PARENT_LEFT);
-                    params.topMargin = Integer.parseInt(tokens[1].toString());
-                    params.leftMargin = Integer.parseInt(tokens[2].toString());
+                    Log.i(null,"Here is an image");
+                    imageViews[numImageViews] = new ImageView(this);
+                    imageParams[numImageViews] = new RelativeLayout.LayoutParams(50,50);
+                    imageParams[numImageViews].addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.ALIGN_PARENT_LEFT);
+                    imageParams[numImageViews].topMargin = Integer.parseInt(tokens[1].toString());
 
+                    Log.i(null,tokens[3]);
 
-                    drawScreen.addView(newImage,params);
+                    imageViews[numImageViews].setImageResource(getResources().getIdentifier(tokens[3],null,null));
+                    drawScreen.addView(imageViews[numImageViews],imageParams[numImageViews]);
+                    numImageViews++;
+                }
+                drawScreen.removeAllViews();
+                for(int i = 0; i < numViews; i++)
+                {
+                    drawScreen.addView(views[i],viewParams[i]);
+                }
+                for(int i = 0; i < numImageViews; i++)
+                {
+                    drawScreen.addView(imageViews[i],imageParams[i]);
                 }
             }
         } catch (IOException e) {

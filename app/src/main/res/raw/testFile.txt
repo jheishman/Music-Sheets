@@ -1,3 +1,0 @@
-View,0,50,none
-View,0,90,none
-ImageView,30,45,android.graphics.drawable.BitmapDrawable@e15d7ad

@@ -26,6 +26,7 @@ import java.io.InputStreamReader;
  */
 public class DisplayActivity extends ActionBarActivity{
 
+    int base = 45;
     InputStreamReader streamReader;
     BufferedReader reader;
     int numViews;
@@ -85,13 +86,14 @@ public class DisplayActivity extends ActionBarActivity{
                 {
                     Log.i(null,"Here is an image");
                     imageViews[numImageViews] = new ImageView(this);
-                    imageParams[numImageViews] = new RelativeLayout.LayoutParams(50,50);
+                    Log.i(null,tokens[3]);
+                    imageParams[numImageViews] = new RelativeLayout.LayoutParams(60,120);
                     imageParams[numImageViews].addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.ALIGN_PARENT_LEFT);
                     imageParams[numImageViews].topMargin = Integer.parseInt(tokens[1].toString());
-
-                    Log.i(null,tokens[3]);
-
-                    imageViews[numImageViews].setImageResource(getResources().getIdentifier(tokens[3],null,null));
+                    //imageParams[numImageViews].leftMargin = Integer.parseInt(tokens[1].toString());
+                    imageParams[numImageViews].leftMargin = base;
+                    base += 80;
+                    imageViews[numImageViews].setImageResource(R.drawable.quarter_note_down);
                     drawScreen.addView(imageViews[numImageViews],imageParams[numImageViews]);
                     numImageViews++;
                 }
@@ -103,10 +105,19 @@ public class DisplayActivity extends ActionBarActivity{
                 for(int i = 0; i < numImageViews; i++)
                 {
                     drawScreen.addView(imageViews[i],imageParams[i]);
+                    sendViewToBack(imageViews[i]);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void sendViewToBack(final View child) {
+        final ViewGroup parent = (ViewGroup)child.getParent();
+        if (null != parent) {
+            parent.removeView(child);
+            parent.addView(child, 0);
         }
     }
 }

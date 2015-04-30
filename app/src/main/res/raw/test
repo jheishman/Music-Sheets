@@ -1,3 +1,14 @@
+View,40,0,none
+View,80,0,none
+View,120,0,none
+View,160,0,none
 View,200,0,none
-View,100,0,none
-ImageView,30,45,R.drawable.flat
+
+ImageView,30,45,R.drawable.quarter_note_down
+ImageView,50,300,R.drawable.quarter_note_down
+ImageView,70,245,R.drawable.quarter_note_down
+ImageView,90,345,R.drawable.quarter_note_down
+ImageView,110,445,R.drawable.quarter_note_down
+ImageView,130,545,R.drawable.quarter_note_down
+ImageView,150,645,R.drawable.quarter_note_down
+

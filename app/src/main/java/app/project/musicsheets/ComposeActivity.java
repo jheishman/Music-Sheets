@@ -130,6 +130,7 @@ public class ComposeActivity extends ActionBarActivity {
 
                         targetLayout.addView(copyImage,params);
                         AddImageViewToFile(copyImage,params);
+                        //copyImage.setTag(res);
                         sendViewToBack(copyImage);
                         copyImage.setVisibility(View.VISIBLE);
                         return true;
@@ -571,7 +572,7 @@ public class ComposeActivity extends ActionBarActivity {
         stringBuilder.append("ImageView,");
         stringBuilder.append(params.topMargin  + ",");
         stringBuilder.append(params.leftMargin + ",");
-        stringBuilder.append(v.getDrawable());
+        stringBuilder.append(v.getId());
 
         Log.i(LOGCAT,stringBuilder.toString());
 

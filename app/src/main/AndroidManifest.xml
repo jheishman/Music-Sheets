@@ -36,6 +36,8 @@
             android:name=".OtherActivity"
             android:label="Other Features">
         </activity>
+
+
     </application>
 
 </manifest>
